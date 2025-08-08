@@ -10,8 +10,6 @@ This repository provides tools and scripts for processing and analyzing data fro
   - Choose between forward, backward, or average methods for assigning timestamps to IBI values.
 - **Jupyter Notebook Support:**
   - Example notebooks for data analysis and visualization.
-- **CSV Export:**
-  - Convert processed data to CSV for further analysis or sharing.
 
 ## Directory Structure
 - `data_readers/` — Python modules for reading and processing raw data files.
