@@ -4,7 +4,7 @@ import glob
 from typing import List, Tuple, Dict
 from datetime import datetime
 import pandas as pd
-from data_readers.green_ppg_reader import read_green_ppg_json
+from data_readers.galaxy_green_ppg_reader import read_galaxy_green_ppg_json
 
 
 def get_green_ppg_files_for_day(data_dir: str, date_str: str) -> List[str]:
@@ -63,8 +63,8 @@ def get_file_timestamps(filepath: str) -> Tuple[int, int]:
 
 def read_green_ppg_file(filepath: str) -> pd.DataFrame:
     """
-    Read a green PPG JSON file and return a pandas DataFrame.
-    Uses the existing read_green_ppg_json function from data_readers.
+    Read a Galaxy green PPG JSON file and return a pandas DataFrame.
+    Uses the existing read_galaxy_green_ppg_json function from data_readers.
     
     Args:
         filepath: Path to the JSON file
@@ -73,7 +73,7 @@ def read_green_ppg_file(filepath: str) -> pd.DataFrame:
         DataFrame with columns: ppg_green_value, datetime
     """
     try:
-        return read_green_ppg_json(filepath)
+        return read_galaxy_green_ppg_json(filepath)
     except Exception as e:
         print(f"Error reading file {filepath}: {e}")
         return pd.DataFrame()
@@ -258,11 +258,11 @@ def main():
     Main function to run the continuity checker and concatenate data.
     """
     # Configuration
-    data_dir = "data/Smartwatch"
-    date_str = "06.08.25"  # Change this to the date you want to check
+    data_dir = "data"  # Main data directory
+    date_str = "08.08.25"  # August 8, 2025
     max_gap_ms = 40
     
-    print(f"🔍 GREEN PPG DATA PROCESSING")
+    print(f"🔍 GALAXY GREEN PPG DATA PROCESSING")
     print(f"Date: {date_str}")
     print(f"Data directory: {data_dir}")
     print(f"Max gap threshold: {max_gap_ms}ms")
